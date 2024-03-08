@@ -7,61 +7,29 @@ ClipVista is a youtube video streaming website created using Rapid API in React.
 ClipVista presents an exhilarating and immersive video-sharing platform, showcasing an extensive array of concise video clips spanning an eclectic range of categories. Crafted using the dynamic combination of React.js and Tailwind CSS, ClipVista redefines user experience, ensuring seamless navigation through a captivating realm of video content. Whether your interests lie in movies, comedy, Trending, or myriad other genres, ClipVista guarantees a fluid and engaging interface for all users, promising a delightful odyssey through the world of short-form videos.
 
 ### Screenshot
+![Screenshot 2023-08-28 144729 1](https://github.com/Anandakrishnan21/dk.t-youtube-react/assets/121444809/102166db-590a-49d9-a8aa-98178d01bfa1)
 
-![Screenshot 2023-08-28 112213](https://github.com/Anandakrishnan21/dk.t-youtube-react/assets/121444809/ba0a28f6-ff9e-4347-838c-22af21111c1b)
+![Screenshot 2023-08-28 151659](https://github.com/Anandakrishnan21/dk.t-youtube-react/assets/121444809/f6d273d3-6374-40b3-963a-34826d084953)
 
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Expansive Video Collection:** Delve into a wide-ranging assortment of short video clips spanning various genres, ensuring there's something for everyone, from entertainment to education, all available in one convenient platform.
 
-### `npm run build`
+- **Simplified User Experience:** Immerse yourself in an elegant and user-friendly interface that guarantees a seamless and enjoyable exploration of diverse video content.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Dynamic Content Integration:** ClipVista seamlessly integrates with external sources via APIs to ensure you have access to the latest and most relevant video clips, complete with thumbnails.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Adaptive to All Devices:** Access ClipVista effortlessly across any device – whether you're on a smartphone, tablet, or desktop – thanks to its responsive design that optimizes the viewing experience.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React.JS
+- Tailwind CSS
+- API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ClipVista is deployed on https://vercel.com
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
