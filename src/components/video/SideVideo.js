@@ -1,11 +1,10 @@
-import React, { useState, useEffect,useContext } from "react";
-import VideoCard from "./VideoCard";
+import React, { useState, useEffect} from "react";
+import VideoCard from "../home/VideoCard";
 import { Link } from "react-router-dom";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
-import { ThemeContext } from "../context/ThemeContext";
+import { fetchFromAPI } from "../../constants/fetchFromAPI";
+import Loading from "../common/Loading";
 
 function SideVideo({ selectedCategory }) {
-  const { themeColors } = useContext(ThemeContext);
   const [videos, setVideos] = useState(null);
 
   useEffect(() => {
@@ -20,19 +19,19 @@ function SideVideo({ selectedCategory }) {
     <>
       {videos ? (
         videos.map((item, idx) => (
-          <div key={idx} className="w-full h-80 p-2">
+          <div
+            key={idx}
+            className="w-full h-60 flex flex-col justify-center items-center p-2 gap-4 md:gap-2"
+          >
             {item.id.videoId && (
-              <Link
-                to={`/video/${item.id.videoId}`}
-                className={`w-full h-full bg-${themeColors.background} text-${themeColors.text} flex flex-col justify-around items-center rounded`}
-              >
+              <Link to={`/video/${item.id.videoId}`} className="linkStyle">
                 <VideoCard video={item} />
               </Link>
             )}
           </div>
         ))
       ) : (
-        <p>Loading...</p>
+        <Loading />
       )}
     </>
   );

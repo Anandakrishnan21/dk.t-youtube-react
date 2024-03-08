@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import { fetchFromAPI } from "../../constants/fetchFromAPI";
 import { useParams } from "react-router-dom";
-import Header from "./Header";
 import SideVideo from "./SideVideo";
+import { AvatarDemo } from "../common/AvatarDemo";
+import { SidebarProvider } from "../../context/SidebarContext";
+import Loading from "../common/Loading";
+import Header from "../common/Header";
 
 function VideoDetail() {
   const { id } = useParams();
@@ -16,14 +19,14 @@ function VideoDetail() {
   }, [id]);
 
   if (!videoDetails) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
-    <>
+    <SidebarProvider>
       <Header />
-      <div className="w-full h-full flex flex-col md:flex-row justify-center bg-gray-800">
-        <div className="w-full h-80 md:h-screen md:w-3/4 sticky top-16 p-2 flex justify-center bg-black">
+      <div className="videoDiv">
+        <div className="videoPlayer">
           <ReactPlayer
             url={`https://youtube.com/watch?v=${id}`}
             alt="youtube"
@@ -32,12 +35,23 @@ function VideoDetail() {
             height="90%"
             controls
           />
+          <div className="md:w-3/4 flex items-center gap-2 text-sm p-2">
+            <AvatarDemo />
+            <div className="w-full flex flex-col text-sm">
+              <p className="font-semibold">
+                {videoDetails.snippet.title.slice(0, 50)}
+              </p>
+              <p className="text-neutral-600">
+                {videoDetails.snippet.channelTitle}
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="md:w-1/4 h-full flex flex-col">
+        <div className="w-11/12 md:w-1/4 h-full flex flex-col justify-center items-center">
           <SideVideo selectedCategory={videoDetails.snippet.categoryId} />
         </div>
       </div>
-    </>
+    </SidebarProvider>
   );
 }
 

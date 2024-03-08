@@ -1,7 +1,7 @@
 import { Routes,Route } from 'react-router-dom';
-import VideoDetail from './components/VideoDetail';
-import SearchFeed from './components/SearchFeed';
-import Home from './components/Home';
+import VideoDetail from './components/video/VideoDetail';
+import SearchFeed from './components/home/SearchFeed';
+import Home from './components/home/Home';
 
 function App() {
   return (
