@@ -1,23 +1,31 @@
-import React, { useState, useEffect} from "react";
+import React from "react";
 import VideoCard from "../home/VideoCard";
 import { Link } from "react-router-dom";
 import { fetchFromAPI } from "../../constants/fetchFromAPI";
 import Loading from "../common/Loading";
+import { useQuery } from "@tanstack/react-query";
 
 function SideVideo({ selectedCategory }) {
-  const [videos, setVideos] = useState(null);
+  const {
+    data: videos,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["videos", selectedCategory],
+    queryFn: async () => {
+      const res = await fetchFromAPI(
+        `search?part=snippet&q=${selectedCategory}`
+      );
+      return res.items;
+    },
+  });
 
-  useEffect(() => {
-    setVideos(null);
-
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
-    );
-  }, [selectedCategory]);
+  if (isLoading) return <Loading />;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <>
-      {videos ? (
+      {videos &&
         videos.map((item, idx) => (
           <div
             key={idx}
@@ -29,10 +37,7 @@ function SideVideo({ selectedCategory }) {
               </Link>
             )}
           </div>
-        ))
-      ) : (
-        <Loading />
-      )}
+        ))}
     </>
   );
 }

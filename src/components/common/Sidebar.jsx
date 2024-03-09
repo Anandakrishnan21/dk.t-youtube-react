@@ -62,7 +62,7 @@ export function SideBar({ selectedCategory, setSelectedCategory }) {
           isLargeOpen ? "lg:flex" : "lg:hidden"
         } ${
           isSmallOpen
-            ? "flex h-full bg-neutral-50 dark:bg-neutral-950 max-h-screen pt-20"
+            ? "flex h-full top-4 bg-neutral-50 dark:bg-neutral-950 max-h-screen pt-20"
             : "hidden"
         }`}
       >

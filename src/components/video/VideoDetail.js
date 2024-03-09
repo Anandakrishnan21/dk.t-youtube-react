@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import { fetchFromAPI } from "../../constants/fetchFromAPI";
 import { useParams } from "react-router-dom";
@@ -7,21 +7,30 @@ import { AvatarDemo } from "../common/AvatarDemo";
 import { SidebarProvider } from "../../context/SidebarContext";
 import Loading from "../common/Loading";
 import Header from "../common/Header";
+import { useQuery } from "@tanstack/react-query";
 
 function VideoDetail() {
   const { id } = useParams();
-  const [videoDetails, setVideoDetails] = useState(null);
+  const {
+    data: videoDetails,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["videoDetails", id],
+    queryFn: async () => {
+      const res = await fetchFromAPI(`videos?part=snippet,statistics&id=${id}`);
+      return res.items[0];
+    },
+    enabled: !!id,
+  });
 
-  useEffect(() => {
-    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
-      .then((data) => setVideoDetails(data.items[0]))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [id]);
+  if (isLoading) return <Loading />;
+
+  if (error) return <div>{error.message}</div>;
 
   if (!videoDetails) {
-    return <Loading />;
+    return null;
   }
-
   return (
     <SidebarProvider>
       <Header />
